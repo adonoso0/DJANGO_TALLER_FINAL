@@ -1,0 +1,71 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+<ol class="breadcrumb">
+  <li><a href="/">Inicio</a></li>
+  <li class="active">Listado de inscripciones</li>
+</ol>
+<title>Listado de inscripciones</title>
+
+      <div class="alert alert-info display-1 text-center page-header"><h1>Listado de inscripciones</h1></div>
+      {% if ins %}
+        <table class="table table-striped table-inverse table-responsive">
+          <thead class="thead-inverse">
+            <tr>
+              <th>ID</th>
+              <th>Nombre de quien reserva</th>
+              <th>Institución</th>
+              <th>Teléfono</th>
+              <th>Fecha reserva</th>
+              <th>Hora reserva</th>
+              <th>Estado reserva</th>
+              <th>Observaciones</th>
+              <th>Editar</th>
+              <th>Eliminar</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for Inscritos in ins %}
+              <tr>
+                <td>{{ Inscritos.id }}</td>
+                <td>{{ Inscritos.nombre }}</td>
+                <td>
+                  {{ Inscritos.institucion }}
+                </td>
+                <td>
+                  {{ Inscritos.telefono }}
+                </td>
+                <td>
+                  {{ Inscritos.fechareserva }}
+                </td>
+                <td>
+                  {{ Inscritos.horareserva }}
+                </td>
+                <td>
+                  {{ Inscritos.estado }}
+                </td>
+                <td>
+                  {{ Inscritos.observacion }}
+                </td>
+                <td>
+                <a href="/actualizarReserva/{{ Inscritos.id }}"
+                   class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-pencil"></i>
+              </td>
+              <td>
+              <a href="/eliminarReserva/{{ Inscritos.id }}"
+                 class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <div class="alert alert-danger text-center" role="alert">
+      <strong>No existen registros de reservas, <a href="../agregarReserva/" class="alert-link">¿Agregar una reserva?</a></strong>
+    </div>
+  {% endif %}
+  <a href="/" class="btn btn-danger">Volver a la página de inicio</a>
+  <a href="../agregarReserva/" class="btn btn-success pull-right">Nueva reserva</a>
+</div>
+
+{% endblock %}

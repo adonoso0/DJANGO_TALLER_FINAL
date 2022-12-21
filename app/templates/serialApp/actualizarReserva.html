@@ -1,0 +1,26 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+<ol class="breadcrumb">
+  <li><a href="/">Inicio</a></li>
+  <li><a href="/inscripciones">Listado de inscripciones</a></li>
+  <li class="active">Actualizar reserva</li>
+</ol>
+
+    <div class="alert alert-warning display-1 text-center page-header"><h1>Actualizando datos de reserva</h1><small><footer class="text-right">*Todos los campos a excepción de la observación, deben ser completados.</small></div>
+    <form method= "POST">
+      <table class="table">
+        {{ form.as_table }}
+        {% csrf_token %}
+        <tr>
+          <td colspan=2>
+            <a href="../inscripciones" class="btn btn-danger">Volver al listado de inscripciones</a>
+            <input type="submit"
+                   value="Actualizar datos de reserva"
+                   class="btn btn-warning pull-right">
+          </td>
+        </tr>
+      </table>
+    </form>
+
+{% endblock %}    

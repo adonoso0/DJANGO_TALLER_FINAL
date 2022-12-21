@@ -1,0 +1,31 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron ">
+    <h1 class="text-center">Sistema de inscripciones</h1>
+</br>
+    <p class="text-center">Bienvenido al sistema de inscripciones para el seminario gastronómico 2022</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Nueva reserva</h2>
+        <p>
+            Acceder al formulario para ingresar una nueva reserva.
+        </p>
+        <p><a class="btn btn-default" href="/agregarReserva">Ingresar &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Lista de reservas</h2>
+        <p>Listado de todos quienes han hecho una reserva</p>
+        <p><a class="btn btn-default" href="/inscripciones">Ingresar &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>API</h2>
+        <p>Acceder a las APIs públicas para recuperar datos</p>
+        <p><a class="btn btn-default " href="/listaAPI">Ingresar &raquo;</a></p>
+    </div>
+</div>
+
+{% endblock %}
